@@ -8,7 +8,6 @@ import {Store} from '../services/Store'
 const AddTask = () => {
     const { state, dispatch } = useContext(Store);
     const { taskList } = state;
-    console.log('ninja',taskList)
     const onFinish = (values) => {
         dispatch({
             type: 'SET_TASK_LIST',
