@@ -1,4 +1,3 @@
-import Password from 'antd/lib/input/Password';
 import React, {useReducer} from 'react';
 
 export const Store = React.createContext();
@@ -6,7 +5,20 @@ export const Store = React.createContext();
 const initialState = {
     session: null,
     email: 'test@test.com',
-    password: 'test'
+    password: 'test',
+    taskList: [
+        {
+            id: 0,
+            name: 'Envoyer un e-mail',
+            description: "A toute l'équipe",
+            complete: false
+        }, {
+            id: 1,
+            name: "Faire l'exercice",
+            description: 'React only',
+            complete: true
+        }
+    ]
 };
 
 const globalReducer = (state = initialState, action) => {
@@ -15,6 +27,11 @@ const globalReducer = (state = initialState, action) => {
             return {
                 ...state,
                 session: action.payload
+            };
+        case 'SET_TASK_LIST':
+            return {
+                ...state,
+                taskList: action.payload
             };
         default:
             return state;
@@ -29,5 +46,5 @@ export function StoreProvider(props) {
     };
     return <Store.Provider value={value}> {
         props.children
-    } < /Store.Provider>;
+    } </Store.Provider>;
 }
