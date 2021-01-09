@@ -8,10 +8,11 @@ import {Store} from '../services/Store'
 const AddTask = () => {
     const { state, dispatch } = useContext(Store);
     const { taskList } = state;
+    console.log('ninja',taskList)
     const onFinish = (values) => {
         dispatch({
             type: 'SET_TASK_LIST',
-            payload: [...taskList,{id:taskList[taskList.length-1].id+1, ...values ,complete:false}]
+            payload: taskList.length>0 ?[...taskList,{id:taskList[taskList.length-1].id+1, ...values ,complete:false}]:[{id:0, ...values ,complete:false}]
         });
     }
 
@@ -59,7 +60,7 @@ const AddTask = () => {
                     style={{ flex: 1, marginLeft: 20 }}
                 >
                     <div style={{ marginTop: 30 }}>
-                        <Button type="primary" htmlType="submit">
+                        <Button style={{borderRadius:'6px'}} type="primary" htmlType="submit">
                             Ajouter la tâche
           </Button></div>
                 </Form.Item>

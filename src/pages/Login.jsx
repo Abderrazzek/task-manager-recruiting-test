@@ -70,7 +70,7 @@ function Login() {
 
                 <Form.Item>
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-                        <Button type="primary" htmlType="submit">
+                        <Button type="primary" htmlType="submit" style={{borderRadius:'6px'}}>
                             Soumettre
           </Button></div>
                 </Form.Item>
