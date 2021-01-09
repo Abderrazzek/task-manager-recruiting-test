@@ -1,22 +1,33 @@
-import React, { useReducer } from 'react';
+import Password from 'antd/lib/input/Password';
+import React, {useReducer} from 'react';
 
 export const Store = React.createContext();
 
 const initialState = {
-	session: null
+    session: null,
+    email: 'test@test.com',
+    password: 'test'
 };
 
 const globalReducer = (state = initialState, action) => {
-	switch (action.type) {
-	case 'SET_SESSION':
-		return { ...state, session: action.payload };
-	default:
-		return state;
-	}
+    switch (action.type) {
+        case 'SET_SESSION':
+            return {
+                ...state,
+                session: action.payload
+            };
+        default:
+            return state;
+    }
 };
 
 export function StoreProvider(props) {
-	const [state, dispatch] = useReducer(globalReducer, initialState);
-	const value = { state, dispatch };
-	return <Store.Provider value={value}>{props.children}</Store.Provider>;
+    const [state, dispatch] = useReducer(globalReducer, initialState);
+    const value = {
+        state,
+        dispatch
+    };
+    return <Store.Provider value={value}> {
+        props.children
+    } < /Store.Provider>;
 }

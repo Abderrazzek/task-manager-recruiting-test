@@ -6,11 +6,12 @@ import { Store } from '../services/Store';
 
 function Login() {
     const [isError, setIsError] = useState(false)
-    const { dispatch } = useContext(Store);
+    const { state, dispatch } = useContext(Store);
+    const { email, password } = state;
 
     const onFinish = (values) => {
         setIsError(false)
-        if (values.email === 'test@test.com' && values.password === 'test') {
+        if (values.email === email && values.password === password) {
             const user = {
                 name: values.email,
                 token: Math.random().toString(36).substring(7)
@@ -73,9 +74,8 @@ function Login() {
                             Soumettre
           </Button></div>
                 </Form.Item>
-                {isError?<div style={{color:'red',display:'inline-block'}}>e-mail ou mot de passe est invalide</div>:''}
+                {isError ? <div style={{ color: 'red', display: 'inline-block' }}>e-mail ou mot de passe est invalide</div> : ''}
             </Form>
-            
         </div>
     );
 }
