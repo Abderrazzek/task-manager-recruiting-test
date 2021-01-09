@@ -1,10 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
-import Routes from './Routes';
+import CheckAuth from './services/CheckAuth';
 
 function App() {
-    return (
-        <Routes/>);
+    return (<CheckAuth/>);
 }
 
 export default App;
