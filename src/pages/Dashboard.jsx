@@ -20,24 +20,27 @@ const Dashboard = () => {
 
 
     return (
-        <>
-            <Tabs defaultActiveKey="1" onChange={callback}>
-                <TabPane tab="Todo List" key="1">
+        <Tabs defaultActiveKey="1" onChange={callback} style={{ padding: '0 20px' }}>
+            <TabPane tab="Todo List" key="1">
+                <div style={{ padding: '0 40px' }}>
                     <TaskList />
                     <AddTask />
-                </TabPane>
-                <TabPane tab="Home" key="2">
+                </div>
+            </TabPane>
+            <TabPane tab="Home" key="2">
+                <div style={{ padding: '0 40px' }}>
                     <TaskList />
                     <AddTask />
-                </TabPane>
-                <TabPane tab="Tâches" key="3">
+                </div>
+            </TabPane>
+            <TabPane tab="Tâches" key="3">
+                <div style={{ padding: '0 40px' }}>
                     <TaskList edit={true} />
-                </TabPane>
-                <TabPane tab="Déconnexion" key="4">
-                </TabPane>
-            </Tabs>
-
-        </>
+                </div>
+            </TabPane>
+            <TabPane tab="Déconnexion" key="4">
+            </TabPane>
+        </Tabs>
     )
 
 }
